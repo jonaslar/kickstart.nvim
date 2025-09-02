@@ -3,4 +3,8 @@
 --
 -- See the kickstart.nvim README for more information
 
-return {}
+return {
+  'github/copilot.vim',
+  version = '*',
+  lazy = false,
+}
