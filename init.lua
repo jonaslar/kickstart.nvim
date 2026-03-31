@@ -221,6 +221,20 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Typescript files: set tabstop and shiftwidth to 4
+-- TypeScript indentation settings
+vim.api.nvim_create_autocmd('FileType', {
+  desc = 'Set TypeScript indentation to 2 spaces',
+  group = vim.api.nvim_create_augroup('typescript-indent', { clear = true }),
+  pattern = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
+  callback = function()
+    vim.opt_local.expandtab = true
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+    vim.opt_local.softtabstop = 2
+  end,
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -976,7 +990,7 @@ require('lazy').setup({
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
   -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
