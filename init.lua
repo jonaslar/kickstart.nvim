@@ -84,18 +84,6 @@ I hope you enjoy your Neovim journey,
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
-<<<<<<< HEAD
-vim.lsp.set_log_level 'off'
-
--- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
--- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = true
-=======
 -- ============================================================
 -- SECTION 1: FOUNDATION
 -- Core Neovim settings, leaders, options, basic keymaps, basic autocmds
@@ -109,7 +97,6 @@ do
   --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
   vim.g.mapleader = ' '
   vim.g.maplocalleader = ' '
->>>>>>> cfdc17be3ae1607d4427332de0b29d556f9dda13
 
   -- Set to true if you have a Nerd Font installed and selected in the terminal
   vim.g.have_nerd_font = false
@@ -232,30 +219,6 @@ do
   -- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
   -- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
-<<<<<<< HEAD
--- Typescript files: set tabstop and shiftwidth to 4
--- TypeScript indentation settings
-vim.api.nvim_create_autocmd('FileType', {
-  desc = 'Set TypeScript indentation to 2 spaces',
-  group = vim.api.nvim_create_augroup('typescript-indent', { clear = true }),
-  pattern = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
-  callback = function()
-    vim.opt_local.expandtab = true
-    vim.opt_local.shiftwidth = 2
-    vim.opt_local.tabstop = 2
-    vim.opt_local.softtabstop = 2
-  end,
-})
-
--- [[ Install `lazy.nvim` plugin manager ]]
---    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
-  if vim.v.shell_error ~= 0 then
-    error('Error cloning lazy.nvim:\n' .. out)
-=======
   -- Keybinds to make split navigation easier.
   --  Use CTRL+<hjkl> to switch between windows
   --
@@ -798,7 +761,6 @@ do
   for name, server in pairs(servers) do
     vim.lsp.config(name, server)
     vim.lsp.enable(name)
->>>>>>> cfdc17be3ae1607d4427332de0b29d556f9dda13
   end
 end
 
@@ -998,57 +960,18 @@ do
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-<<<<<<< HEAD
-  -- require 'kickstart.plugins.debug',
-  require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-=======
   -- require 'kickstart.plugins.debug'
   -- require 'kickstart.plugins.indent_line'
   -- require 'kickstart.plugins.lint'
   -- require 'kickstart.plugins.autopairs'
   -- require 'kickstart.plugins.neo-tree'
   -- require 'kickstart.plugins.gitsigns' -- adds gitsigns recommended keymaps
->>>>>>> cfdc17be3ae1607d4427332de0b29d556f9dda13
 
   -- NOTE: You can add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-<<<<<<< HEAD
-  { import = 'custom.plugins' },
-  --
-  -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
-  -- Or use telescope!
-  -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
-  -- you can continue same window with `<space>sr` which resumes last telescope search
-}, {
-  ui = {
-    -- If you are using a Nerd Font: set icons to an empty table which will use the
-    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-    icons = vim.g.have_nerd_font and {} or {
-      cmd = '⌘',
-      config = '🛠',
-      event = '📅',
-      ft = '📂',
-      init = '⚙',
-      keys = '🗝',
-      plugin = '🔌',
-      runtime = '💻',
-      require = '🌙',
-      source = '📄',
-      start = '🚀',
-      task = '📌',
-      lazy = '💤 ',
-    },
-  },
-})
-=======
   -- require 'custom.plugins'
 end
->>>>>>> cfdc17be3ae1607d4427332de0b29d556f9dda13
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
